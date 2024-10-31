@@ -13,4 +13,5 @@ dependencies = [
     "nvitop>=1.3.2",
     "pdf2image>=1.17.0",
     "pydantic>=2.9.2",
+    "tyro>=0.8.14",
 ]

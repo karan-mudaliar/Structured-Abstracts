@@ -20,6 +20,15 @@ wheels = [
 ]
 
 [[package]]
+name = "cachetools"
+version = "5.5.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/c3/38/a0f315319737ecf45b4319a8cd1f3a908e29d9277b46942263292115eee7/cachetools-5.5.0.tar.gz", hash = "sha256:2cc24fb4cbe39633fb7badd9db9ca6295d766d9c2995f245725a46715d050f2a", size = 27661 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a4/07/14f8ad37f2d12a5ce41206c21820d8cb6561b728e51fad4530dff0552a67/cachetools-5.5.0-py3-none-any.whl", hash = "sha256:02134e8439cdc2ffb62023ce1debca2944c3f289d66bb17ead3ab3dede74b292", size = 9524 },
+]
+
+[[package]]
 name = "certifi"
 version = "2024.8.30"
 source = { registry = "https://pypi.org/simple" }
@@ -357,6 +366,15 @@ wheels = [
 ]
 
 [[package]]
+name = "nvidia-ml-py"
+version = "12.535.161"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/33/ed/855fae1fbdb55c83fd27621de8a9043fe5855a05377aed4e451ba9c6a336/nvidia-ml-py-12.535.161.tar.gz", hash = "sha256:2bcc31ff7a0ea291ed8d7fc39b149391a42c2fb1cb4256c935e692de488b4d17", size = 35987 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/24/45/fcbc453b1678f2fee151f57c0cb8e75c1b33617e6aa8ebc62395532dd12a/nvidia_ml_py-12.535.161-py3-none-any.whl", hash = "sha256:69137b137c3c6f6185361346f02d9865c1f1b6754dfd0d34800516761c4e45af", size = 37270 },
+]
+
+[[package]]
 name = "nvidia-nccl-cu12"
 version = "2.21.5"
 source = { registry = "https://pypi.org/simple" }
@@ -380,6 +398,23 @@ source = { registry = "https://pypi.org/simple" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/06/39/471f581edbb7804b39e8063d92fc8305bdc7a80ae5c07dbe6ea5c50d14a5/nvidia_nvtx_cu12-12.4.127-py3-none-manylinux2014_aarch64.whl", hash = "sha256:7959ad635db13edf4fc65c06a6e9f9e55fc2f92596db928d169c0bb031e88ef3", size = 100417 },
     { url = "https://files.pythonhosted.org/packages/87/20/199b8713428322a2f22b722c62b8cc278cc53dffa9705d744484b5035ee9/nvidia_nvtx_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl", hash = "sha256:781e950d9b9f60d8241ccea575b32f5105a5baf4c2351cab5256a24869f12a1a", size = 99144 },
+]
+
+[[package]]
+name = "nvitop"
+version = "1.3.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "cachetools" },
+    { name = "colorama", marker = "platform_system == 'Windows'" },
+    { name = "nvidia-ml-py" },
+    { name = "psutil" },
+    { name = "termcolor" },
+    { name = "windows-curses", marker = "platform_system == 'Windows'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/82/c8/a99ef6649e42aaf22953e3ba97cadd735652ab4512c8fc212ea6f6bdee47/nvitop-1.3.2.tar.gz", hash = "sha256:9ea401dfca6b268cf30c041e428f461aab31e4bc5e17bc8e923568e16c9cb1f1", size = 227359 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e2/04/264d0d041abd8b52c17eeec0ef7a2b8d34944c8d53da16a5d8d18b406d56/nvitop-1.3.2-py3-none-any.whl", hash = "sha256:be61c3375c99c2d871bf87f46e7969c89da730593c14734120de4f16203022e8", size = 215353 },
 ]
 
 [[package]]
@@ -630,12 +665,14 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "colpali-engine" },
+    { name = "nvitop" },
     { name = "torch" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "colpali-engine", specifier = ">=0.3.3" },
+    { name = "nvitop", specifier = ">=1.3.2" },
     { name = "torch", specifier = ">=2.5.1" },
 ]
 
@@ -649,6 +686,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/ca/99/5a5b6f19ff9f083671ddf7b9632028436167cd3d33e11015754e41b249a4/sympy-1.13.1.tar.gz", hash = "sha256:9cebf7e04ff162015ce31c9c6c9144daa34a93bd082f54fd8f12deca4f47515f", size = 7533040 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b2/fe/81695a1aa331a842b582453b605175f419fe8540355886031328089d840a/sympy-1.13.1-py3-none-any.whl", hash = "sha256:db36cdc64bf61b9b24578b6f7bab1ecdd2452cf008f34faa33776680c26d66f8", size = 6189177 },
+]
+
+[[package]]
+name = "termcolor"
+version = "2.5.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/37/72/88311445fd44c455c7d553e61f95412cf89054308a1aa2434ab835075fc5/termcolor-2.5.0.tar.gz", hash = "sha256:998d8d27da6d48442e8e1f016119076b690d962507531df4890fcd2db2ef8a6f", size = 13057 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/7f/be/df630c387a0a054815d60be6a97eb4e8f17385d5d6fe660e1c02750062b4/termcolor-2.5.0-py3-none-any.whl", hash = "sha256:37b17b5fc1e604945c2642c872a3764b5d547a48009871aea3edd3afa180afb8", size = 7755 },
 ]
 
 [[package]]
@@ -785,4 +831,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/ed/63/22ba4ebfe7430b76388e7cd448d5478814d3032121827c12a2cc287e2260/urllib3-2.2.3.tar.gz", hash = "sha256:e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9", size = 300677 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/ce/d9/5f4c13cecde62396b0d3fe530a50ccea91e7dfc1ccf0e09c228841bb5ba8/urllib3-2.2.3-py3-none-any.whl", hash = "sha256:ca899ca043dcb1bafa3e262d73aa25c465bfb49e0bd9dd5d59f1d0acba2f8fac", size = 126338 },
+]
+
+[[package]]
+name = "windows-curses"
+version = "2.4.0"
+source = { registry = "https://pypi.org/simple" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/76/91/a24739ea1bd53ec0b4e05ba5c0c8f786715dfff1d6ce95bc8867f9677292/windows_curses-2.4.0-cp311-cp311-win32.whl", hash = "sha256:90fde3341b2361f45716cfbe44bd253ac6a07dfde7262f3afdcf7cc0285c35ac", size = 71133 },
+    { url = "https://files.pythonhosted.org/packages/ea/7f/e680c41be83302a40b2c9b45759e6105cf0e3afc5a0b67f8eb926ee478cc/windows_curses-2.4.0-cp311-cp311-win_amd64.whl", hash = "sha256:0c32be4aa97887febff175a8a6b3deeecc06c1a3f47ecbb5f62de6bf4165d6db", size = 81457 },
+    { url = "https://files.pythonhosted.org/packages/86/66/0a83825bd45f5cbd8dbeb7f96497e1162b355cbabd956b4960efceb04dc2/windows_curses-2.4.0-cp312-cp312-win32.whl", hash = "sha256:e165db84de30039f6da6bded9aa2f88e3c1ae7be11dc7c84416cbe6ba0ac4f29", size = 71403 },
+    { url = "https://files.pythonhosted.org/packages/07/fc/5faaef1ec5921953cc7c87ff60a5af751769cb996caab828ceb21f13ee95/windows_curses-2.4.0-cp312-cp312-win_amd64.whl", hash = "sha256:f50d02833a7e7866b9f42d62febbdf83c6703575240e9bbdd1446d09d70505d3", size = 81752 },
 ]

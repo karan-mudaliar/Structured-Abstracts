@@ -282,6 +282,15 @@ wheels = [
 ]
 
 [[package]]
+name = "cloudpathlib"
+version = "0.20.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/71/0b/a47d78ed2816db100543b504fdbfc2070f422aac858e6bcf775713e37b8a/cloudpathlib-0.20.0.tar.gz", hash = "sha256:f6ef7ca409a510f7ba4639ba50ab3fc5b6dee82d6dff0d7f5715fd0c9ab35891", size = 45149 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/1f/6e/b64600156934dab14cc8b403095a9ea8bd722aad2e775673c68346b76220/cloudpathlib-0.20.0-py3-none-any.whl", hash = "sha256:7af3bcefbf73392ae7f31c08b3660ec31607f8c01b7f6262d4d73469a845f641", size = 52547 },
+]
+
+[[package]]
 name = "colorama"
 version = "0.4.6"
 source = { registry = "https://pypi.org/simple" }
@@ -1355,6 +1364,15 @@ wheels = [
 ]
 
 [[package]]
+name = "pip"
+version = "24.3.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/f4/b1/b422acd212ad7eedddaf7981eee6e5de085154ff726459cf2da7c5a184c1/pip-24.3.1.tar.gz", hash = "sha256:ebcb60557f2aefabc2e0f918751cd24ea0d56d8ec5445fe1807f1d2109660b99", size = 1931073 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ef/7d/500c9ad20238fcfcb4cb9243eede163594d7020ce87bd9610c9e02771876/pip-24.3.1-py3-none-any.whl", hash = "sha256:3790624780082365f47549d032f3770eeb2b1e8bd1f7b2e02dace1afa361b4ed", size = 1822182 },
+]
+
+[[package]]
 name = "platformdirs"
 version = "4.3.6"
 source = { registry = "https://pypi.org/simple" }
@@ -1390,6 +1408,8 @@ version = "6.1.0"
 source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/26/10/2a30b13c61e7cf937f4adf90710776b7918ed0a9c434e2c38224732af310/psutil-6.1.0.tar.gz", hash = "sha256:353815f59a7f64cdaca1c0307ee13558a0512f6db064e92fe833784f08539c7a", size = 508565 }
 wheels = [
+    { url = "https://files.pythonhosted.org/packages/da/2b/f4dea5d993d9cd22ad958eea828a41d5d225556123d372f02547c29c4f97/psutil-6.1.0-cp27-none-win32.whl", hash = "sha256:9118f27452b70bb1d9ab3198c1f626c2499384935aaf55388211ad982611407e", size = 246648 },
+    { url = "https://files.pythonhosted.org/packages/9f/14/4aa97a7f2e0ac33a050d990ab31686d651ae4ef8c86661fef067f00437b9/psutil-6.1.0-cp27-none-win_amd64.whl", hash = "sha256:a8506f6119cff7015678e2bce904a4da21025cc70ad283a53b099e7620061d85", size = 249905 },
     { url = "https://files.pythonhosted.org/packages/01/9e/8be43078a171381953cfee33c07c0d628594b5dbfc5157847b85022c2c1b/psutil-6.1.0-cp36-abi3-macosx_10_9_x86_64.whl", hash = "sha256:6e2dcd475ce8b80522e51d923d10c7871e45f20918e027ab682f94f1c6351688", size = 247762 },
     { url = "https://files.pythonhosted.org/packages/1d/cb/313e80644ea407f04f6602a9e23096540d9dc1878755f3952ea8d3d104be/psutil-6.1.0-cp36-abi3-macosx_11_0_arm64.whl", hash = "sha256:0895b8414afafc526712c498bd9de2b063deaac4021a3b3c34566283464aff8e", size = 248777 },
     { url = "https://files.pythonhosted.org/packages/65/8e/bcbe2025c587b5d703369b6a75b65d41d1367553da6e3f788aff91eaf5bd/psutil-6.1.0-cp36-abi3-manylinux_2_12_i686.manylinux2010_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:9dcbfce5d89f1d1f2546a2090f4fcf87c7f669d1d90aacb7d7582addece9fb38", size = 284259 },
@@ -1917,10 +1937,32 @@ wheels = [
 ]
 
 [[package]]
+name = "stamina"
+version = "24.3.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "tenacity" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/c8/35/afe1f3467e840f414cfea90993c5a94490a6360eb3653236c3a7de099cf6/stamina-24.3.0.tar.gz", hash = "sha256:1d763c98962ca11f1729c357422926a750a138e803e7beb9f9d6c99d33d9997d", size = 558536 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/7d/81/818b0b93812cc0a69a0b17c591dca1a3779aeab7f0ff094dee51f4a6bcd3/stamina-24.3.0-py3-none-any.whl", hash = "sha256:28caf1a5db514256d86e32b60621630552fa9a60dace4e6fb5c78ba15f26236e", size = 16445 },
+]
+
+[[package]]
+name = "structlog"
+version = "24.4.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/78/a3/e811a94ac3853826805253c906faa99219b79951c7d58605e89c79e65768/structlog-24.4.0.tar.gz", hash = "sha256:b27bfecede327a6d2da5fbc96bd859f114ecc398a6389d664f62085ee7ae6fc4", size = 1348634 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/bf/65/813fc133609ebcb1299be6a42e5aea99d6344afb35ccb43f67e7daaa3b92/structlog-24.4.0-py3-none-any.whl", hash = "sha256:597f61e80a91cc0749a9fd2a098ed76715a1c8a01f73e336b746504d1aad7610", size = 67180 },
+]
+
+[[package]]
 name = "structured-abstracts"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "cloudpathlib" },
     { name = "colpali-engine" },
     { name = "ipykernel" },
     { name = "ipywidgets" },
@@ -1929,12 +1971,16 @@ dependencies = [
     { name = "nbstripout" },
     { name = "nvitop" },
     { name = "pdf2image" },
+    { name = "pip" },
     { name = "pydantic" },
+    { name = "stamina" },
+    { name = "structlog" },
     { name = "tyro" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "cloudpathlib", specifier = ">=0.20.0" },
     { name = "colpali-engine", specifier = ">=0.3.3" },
     { name = "ipykernel", specifier = ">=6.29.5" },
     { name = "ipywidgets", specifier = ">=8.1.5" },
@@ -1943,7 +1989,10 @@ requires-dist = [
     { name = "nbstripout", specifier = ">=0.7.1" },
     { name = "nvitop", specifier = ">=1.3.2" },
     { name = "pdf2image", specifier = ">=1.17.0" },
+    { name = "pip", specifier = ">=24.3.1" },
     { name = "pydantic", specifier = ">=2.9.2" },
+    { name = "stamina", specifier = ">=24.3.0" },
+    { name = "structlog", specifier = ">=24.4.0" },
     { name = "tyro", specifier = ">=0.8.14" },
 ]
 
@@ -1957,6 +2006,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/ca/99/5a5b6f19ff9f083671ddf7b9632028436167cd3d33e11015754e41b249a4/sympy-1.13.1.tar.gz", hash = "sha256:9cebf7e04ff162015ce31c9c6c9144daa34a93bd082f54fd8f12deca4f47515f", size = 7533040 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b2/fe/81695a1aa331a842b582453b605175f419fe8540355886031328089d840a/sympy-1.13.1-py3-none-any.whl", hash = "sha256:db36cdc64bf61b9b24578b6f7bab1ecdd2452cf008f34faa33776680c26d66f8", size = 6189177 },
+]
+
+[[package]]
+name = "tenacity"
+version = "9.0.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/cd/94/91fccdb4b8110642462e653d5dcb27e7b674742ad68efd146367da7bdb10/tenacity-9.0.0.tar.gz", hash = "sha256:807f37ca97d62aa361264d497b0e31e92b8027044942bfa756160d908320d73b", size = 47421 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b6/cb/b86984bed139586d01532a587464b5805f12e397594f19f931c4c2fbfa61/tenacity-9.0.0-py3-none-any.whl", hash = "sha256:93de0c98785b27fcf659856aa9f54bfbd399e29969b0621bc7f762bd441b4539", size = 28169 },
 ]
 
 [[package]]

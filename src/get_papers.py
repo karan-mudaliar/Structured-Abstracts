@@ -140,7 +140,10 @@ def get_pdfs_from_acl_id(acl_papers: dict[str, dict[str, Any]], output_dir: str 
         pdf_url = details.get("openAccessPdf")
         
         if pdf_url:
-            pdf_filename = os.path.join(output_dir, f"{acl_id}.pdf")
+            # Replace spaces and hyphens in the title with underscores
+            paper_title = details["title"].replace(" ", "_").replace("_", "_")
+            pdf_filename = os.path.join(output_dir, f"{paper_title}.pdf")
+
             try:
                 success = download_pdf(pdf_url, pdf_filename)
                 if success:

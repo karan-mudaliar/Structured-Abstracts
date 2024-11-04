@@ -68,6 +68,7 @@ The `get_papers.py` script is a Python script that allows you to search for acad
 #### Script Inputs
 
 The script accepts several parameters:
+```
 
 `--query` (required): The search query term, e.g., "natural language processing". You can use logical operators for advanced search, e.g., "embedding | retrieval".
 `--venue`: The publication venue to filter papers from. Currently, only "ACL Anthology" is supported.
@@ -75,6 +76,7 @@ The script accepts several parameters:
 `--output-dir`: The directory to save downloaded PDFs. Default is "acl_papers".
 `--api-key`: Optional API key for Semantic Scholar. It's recommended for higher request limits on the API.
 `--retry-attempts`: Number of retry attempts for downloading PDFs in case of network issues. Default is 3.
+```
 
 #### Example Usage
 To fetch a maximum 500 papers related to "embedding" or "retrieval" and save them to the data/papers directory, use the following command:

@@ -6,6 +6,7 @@ import tyro
 from dotenv import load_dotenv
 import stamina
 import structlog
+import subprocess
 
 load_dotenv()
 logger = structlog.get_logger()
@@ -85,7 +86,7 @@ def fetch_acl_papers(query: str, max_results: int = 100) -> dict[str, dict[str, 
 def download_pdf(pdf_url: str, pdf_filename: str) -> bool:
     """
     Attempts to download a PDF file from the given URL and save it to the specified filename.
-    Retries up to 3 times on network-related exceptions.
+    Retries up to 3 times on network-related exceptions. If all retries fail, tries wget as a fallback.
 
     Parameters:
     - pdf_url (str): The URL of the PDF to download.
@@ -94,14 +95,29 @@ def download_pdf(pdf_url: str, pdf_filename: str) -> bool:
     Returns:
     - bool: True if download is successful, False otherwise.
     """
-    response = requests.get(pdf_url, stream=True)
-    response.raise_for_status()
-    
-    with open(pdf_filename, "wb") as pdf_file:
-        for chunk in response.iter_content(chunk_size=8192):
-            pdf_file.write(chunk)
-    
-    return True
+    try:
+        # Attempt to download with requests
+        response = requests.get(pdf_url, stream=True)
+        response.raise_for_status()
+        
+        with open(pdf_filename, "wb") as pdf_file:
+            for chunk in response.iter_content(chunk_size=8192):
+                pdf_file.write(chunk)
+        
+        return True
+
+    except requests.exceptions.RequestException as e:
+        logger.error(f"Failed to download PDF using requests after retries: {e}")
+        
+        # Fallback to wget if requests fails
+        try:
+            result = subprocess.run(["wget", pdf_url, "-O", pdf_filename], check=True, capture_output=True, text=True)
+            logger.info(f"Downloaded PDF using wget for URL: {pdf_url}")
+            return pdf_filename
+
+        except subprocess.CalledProcessError as wget_error:
+            logger.error(f"Both requests and wget failed for {pdf_url}. Error: {wget_error.stderr}")
+            return False
 
 
 def get_pdfs_from_acl_id(acl_papers: dict[str, dict[str, Any]], output_dir: str = "acl_papers") -> None:
@@ -124,7 +140,10 @@ def get_pdfs_from_acl_id(acl_papers: dict[str, dict[str, Any]], output_dir: str 
         pdf_url = details.get("openAccessPdf")
         
         if pdf_url:
-            pdf_filename = os.path.join(output_dir, f"{acl_id}.pdf")
+            # Replace spaces and hyphens in the title with underscores
+            paper_title = details["title"].replace(" ", "_").replace("_", "_")
+            pdf_filename = os.path.join(output_dir, f"{paper_title}.pdf")
+
             try:
                 success = download_pdf(pdf_url, pdf_filename)
                 if success:
